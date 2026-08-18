@@ -1,0 +1,1010 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>ShopEase - Home</title>
+
+    <style>
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background: #f7f8fc;
+            color: #222;
+        }
+
+        /* ================= NAVBAR ================= */
+
+        nav {
+            height: 75px;
+            width: 100%;
+
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            padding: 0 7%;
+
+            background: white;
+
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+
+            box-shadow: 0 2px 15px rgba(0,0,0,0.08);
+        }
+
+        .logo {
+            font-size: 28px;
+            font-weight: bold;
+            color: #667eea;
+        }
+
+        .logo span {
+            color: #764ba2;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 30px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #333;
+            font-weight: 500;
+            transition: 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: #667eea;
+        }
+
+        .nav-icons {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .nav-icons span {
+            font-size: 22px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .nav-icons span:hover {
+            transform: translateY(-3px) scale(1.1);
+        }
+
+        /* ================= HERO ================= */
+
+        .hero {
+            min-height: 600px;
+
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            padding: 60px 8%;
+
+            background: linear-gradient(
+                135deg,
+                #667eea,
+                #764ba2
+            );
+
+            color: white;
+
+            overflow: hidden;
+        }
+
+        .hero-content {
+            width: 50%;
+            animation: slideLeft 1s ease;
+        }
+
+        .hero-content h1 {
+            font-size: 65px;
+            line-height: 1.05;
+            margin-bottom: 25px;
+        }
+
+        .hero-content h1 span {
+            color: #ffd166;
+        }
+
+        .hero-content p {
+            font-size: 18px;
+            line-height: 1.7;
+            max-width: 500px;
+            color: rgba(255,255,255,0.85);
+            margin-bottom: 30px;
+        }
+
+        .shop-btn {
+            display: inline-block;
+
+            padding: 15px 32px;
+
+            background: white;
+            color: #667eea;
+
+            border-radius: 30px;
+
+            text-decoration: none;
+            font-weight: bold;
+
+            transition: 0.3s;
+
+            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+        }
+
+        .shop-btn:hover {
+            transform: translateY(-5px) scale(1.03);
+        }
+
+        @keyframes slideLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-80px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        /* Hero product */
+
+        .hero-image {
+            width: 45%;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            animation: floatProduct 4s infinite ease-in-out;
+        }
+
+        .hero-image .product {
+            font-size: 230px;
+
+            filter: drop-shadow(
+                0 25px 20px rgba(0,0,0,0.3)
+            );
+        }
+
+        @keyframes floatProduct {
+
+            0%, 100% {
+                transform: translateY(0) rotate(-4deg);
+            }
+
+            50% {
+                transform: translateY(-25px) rotate(4deg);
+            }
+
+        }
+
+        /* ================= CATEGORIES ================= */
+
+        .section {
+            padding: 70px 8%;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 45px;
+        }
+
+        .section-title h2 {
+            font-size: 36px;
+            margin-bottom: 10px;
+        }
+
+        .section-title p {
+            color: #777;
+        }
+
+        .categories {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 25px;
+        }
+
+        .category {
+            background: white;
+
+            padding: 35px 20px;
+
+            text-align: center;
+
+            border-radius: 20px;
+
+            box-shadow: 0 10px 30px rgba(0,0,0,0.06);
+
+            cursor: pointer;
+
+            transition: 0.4s;
+        }
+
+        .category:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.12);
+        }
+
+        .category-icon {
+            font-size: 55px;
+            margin-bottom: 15px;
+
+            display: inline-block;
+
+            transition: 0.4s;
+        }
+
+        .category:hover .category-icon {
+            transform: scale(1.2) rotate(8deg);
+        }
+
+        .category h3 {
+            margin-bottom: 8px;
+        }
+
+        .category p {
+            color: #888;
+            font-size: 14px;
+        }
+
+        /* ================= PRODUCTS ================= */
+
+        .products {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 25px;
+        }
+
+        .product-card {
+            background: white;
+
+            border-radius: 20px;
+
+            overflow: hidden;
+
+            box-shadow: 0 10px 30px rgba(0,0,0,0.06);
+
+            transition: 0.4s;
+
+            animation: productAppear 0.8s ease;
+        }
+
+        .product-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.12);
+        }
+
+        .product-image {
+            height: 240px;
+
+            background: #f0f2ff;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            position: relative;
+        }
+
+        .product-image span {
+            font-size: 120px;
+
+            transition: 0.5s;
+        }
+
+        .product-card:hover .product-image span {
+            transform: scale(1.15) rotate(-5deg);
+        }
+
+        .heart {
+            position: absolute;
+
+            top: 15px;
+            right: 15px;
+
+            width: 40px;
+            height: 40px;
+
+            border-radius: 50%;
+
+            border: none;
+
+            background: white;
+
+            font-size: 18px;
+
+            cursor: pointer;
+
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+
+            transition: 0.3s;
+        }
+
+        .heart:hover {
+            transform: scale(1.15);
+        }
+
+        .product-info {
+            padding: 20px;
+        }
+
+        .product-info h3 {
+            margin-bottom: 8px;
+        }
+
+        .rating {
+            color: #f5b301;
+            margin-bottom: 10px;
+        }
+
+        .price {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .price strong {
+            font-size: 20px;
+            color: #667eea;
+        }
+
+        .add-btn {
+            border: none;
+
+            background: #667eea;
+            color: white;
+
+            padding: 10px 15px;
+
+            border-radius: 20px;
+
+            cursor: pointer;
+
+            transition: 0.3s;
+        }
+
+        .add-btn:hover {
+            background: #764ba2;
+            transform: scale(1.05);
+        }
+
+        @keyframes productAppear {
+
+            from {
+                opacity: 0;
+                transform: translateY(40px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+
+        }
+
+        /* ================= SALE ================= */
+
+        .sale {
+            margin: 30px 8% 70px;
+
+            min-height: 280px;
+
+            border-radius: 25px;
+
+            padding: 50px;
+
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #ff6b6b,
+                    #ff8e53
+                );
+
+            color: white;
+
+            overflow: hidden;
+        }
+
+        .sale-content h2 {
+            font-size: 45px;
+            margin-bottom: 10px;
+        }
+
+        .sale-content p {
+            font-size: 18px;
+            margin-bottom: 25px;
+        }
+
+        .sale-btn {
+            display: inline-block;
+
+            background: white;
+            color: #ff6b6b;
+
+            padding: 13px 25px;
+
+            border-radius: 25px;
+
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .sale-icon {
+            font-size: 150px;
+
+            animation: saleFloat 3s infinite ease-in-out;
+        }
+
+        @keyframes saleFloat {
+
+            0%,100% {
+                transform: rotate(-8deg) translateY(0);
+            }
+
+            50% {
+                transform: rotate(8deg) translateY(-15px);
+            }
+
+        }
+
+        /* ================= FOOTER ================= */
+
+        footer {
+            background: #171827;
+
+            color: white;
+
+            padding: 50px 8%;
+
+            display: flex;
+            justify-content: space-between;
+            gap: 40px;
+        }
+
+        footer h3 {
+            margin-bottom: 15px;
+        }
+
+        footer p {
+            color: #aaa;
+            line-height: 1.7;
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 10px;
+        }
+
+        .footer-links a {
+            color: #aaa;
+            text-decoration: none;
+        }
+
+        .footer-links a:hover {
+            color: white;
+        }
+
+        /* ================= RESPONSIVE ================= */
+
+        @media(max-width: 900px) {
+
+            .nav-links {
+                display: none;
+            }
+
+            .hero {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .hero-content {
+                width: 100%;
+            }
+
+            .hero-content h1 {
+                font-size: 48px;
+            }
+
+            .hero-image {
+                width: 100%;
+                margin-top: 40px;
+            }
+
+            .categories,
+            .products {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            footer {
+                flex-direction: column;
+            }
+        }
+
+        @media(max-width: 550px) {
+
+            .categories,
+            .products {
+                grid-template-columns: 1fr;
+            }
+
+            .hero-content h1 {
+                font-size: 40px;
+            }
+
+            .hero-image .product {
+                font-size: 150px;
+            }
+
+            .sale {
+                flex-direction: column;
+                text-align: center;
+                padding: 35px 20px;
+            }
+
+            .sale-content h2 {
+                font-size: 32px;
+            }
+
+        }
+
+    </style>
+</head>
+
+
+<body>
+
+
+<!-- ================= NAVBAR ================= -->
+
+<nav>
+
+    <div class="logo">
+        Shop<span>Ease</span>
+    </div>
+
+    <ul class="nav-links">
+
+        <li>
+            <a href="#">Home</a>
+        </li>
+
+        <li>
+            <a href="#categories">Categories</a>
+        </li>
+
+        <li>
+            <a href="#products">Products</a>
+        </li>
+
+        <li>
+            <a href="#sale">Offers</a>
+        </li>
+
+        <li>
+            <a href="{% url 'setting'%}">Setting</a>
+        </li>
+
+    </ul>
+
+    <div class="nav-icons">
+
+        <span>🔍</span>
+        <span>🛒</span>
+        <span>👤</span>
+
+    </div>
+
+</nav>
+
+
+<!-- ================= HERO ================= -->
+
+<section class="hero">
+
+    <div class="hero-content">
+
+        <h1>
+            Discover Your
+            <span>Style.</span>
+        </h1>
+
+        <p>
+            Explore the latest trends, amazing products
+            and exclusive deals. Everything you love,
+            all in one place.
+        </p>
+
+        <a href="#products" class="shop-btn">
+            Shop Now →
+        </a>
+
+    </div>
+
+
+    <div class="hero-image">
+
+        <div class="product">
+            👟
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ================= CATEGORIES ================= -->
+
+<section class="section" id="categories">
+
+    <div class="section-title">
+
+        <h2>Shop By Category</h2>
+
+        <p>
+            Find everything you need
+        </p>
+
+    </div>
+
+
+    <div class="categories">
+
+        <div class="category">
+
+            <div class="category-icon">
+                👕
+            </div>
+
+            <h3>Fashion</h3>
+
+            <p>
+                Latest fashion trends
+            </p>
+
+        </div>
+
+
+        <div class="category">
+
+            <div class="category-icon">
+                📱
+            </div>
+
+            <h3>Electronics</h3>
+
+            <p>
+                Smart gadgets & devices
+            </p>
+
+        </div>
+
+
+        <div class="category">
+
+            <div class="category-icon">
+                👟
+            </div>
+
+            <h3>Footwear</h3>
+
+            <p>
+                Shoes for every occasion
+            </p>
+
+        </div>
+
+
+        <div class="category">
+
+            <div class="category-icon">
+                🏠
+            </div>
+
+            <h3>Home</h3>
+
+            <p>
+                Make your home beautiful
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ================= PRODUCTS ================= -->
+
+<section class="section" id="products">
+
+    <div class="section-title">
+
+        <h2>Trending Products</h2>
+
+        <p>
+            Our most popular products
+        </p>
+
+    </div>
+
+
+    <div class="products">
+
+
+        <!-- Product 1 -->
+
+        <div class="product-card">
+
+            <div class="product-image">
+
+                <span>👟</span>
+
+                <button class="heart">
+                    ♡
+                </button>
+
+            </div>
+
+            <div class="product-info">
+
+                <h3>Sport Sneakers</h3>
+
+                <div class="rating">
+                    ★★★★★
+                </div>
+
+                <div class="price">
+
+                    <strong>
+                        ₹1,999
+                    </strong>
+
+                    <button class="add-btn">
+                        Add +
+                    </button>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- Product 2 -->
+
+        <div class="product-card">
+
+            <div class="product-image">
+
+                <span>⌚</span>
+
+                <button class="heart">
+                    ♡
+                </button>
+
+            </div>
+
+            <div class="product-info">
+
+                <h3>Smart Watch</h3>
+
+                <div class="rating">
+                    ★★★★☆
+                </div>
+
+                <div class="price">
+
+                    <strong>
+                        ₹2,499
+                    </strong>
+
+                    <button class="add-btn">
+                        Add +
+                    </button>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- Product 3 -->
+
+        <div class="product-card">
+
+            <div class="product-image">
+
+                <span>🎧</span>
+
+                <button class="heart">
+                    ♡
+                </button>
+
+            </div>
+
+            <div class="product-info">
+
+                <h3>Wireless Headphones</h3>
+
+                <div class="rating">
+                    ★★★★★
+                </div>
+
+                <div class="price">
+
+                    <strong>
+                        ₹1,799
+                    </strong>
+
+                    <button class="add-btn">
+                        Add +
+                    </button>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- Product 4 -->
+
+        <div class="product-card">
+
+            <div class="product-image">
+
+                <span>🎒</span>
+
+                <button class="heart">
+                    ♡
+                </button>
+
+            </div>
+
+            <div class="product-info">
+
+                <h3>Travel Backpack</h3>
+
+                <div class="rating">
+                    ★★★★☆
+                </div>
+
+                <div class="price">
+
+                    <strong>
+                        ₹1,299
+                    </strong>
+
+                    <button class="add-btn">
+                        Add +
+                    </button>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ================= SALE ================= -->
+
+<section class="sale" id="sale">
+
+    <div class="sale-content">
+
+        <h2>
+            Mega Sale 🔥
+        </h2>
+
+        <p>
+            Get up to 50% OFF on selected products.
+        </p>
+
+        <a href="#products" class="sale-btn">
+            Shop Sale
+        </a>
+
+    </div>
+
+    <div class="sale-icon">
+        🛍️
+    </div>
+
+</section>
+
+
+<!-- ================= FOOTER ================= -->
+
+<footer>
+
+    <div>
+
+        <h3>ShopEase</h3>
+
+        <p>
+            Your one-stop destination for
+            fashion, electronics and lifestyle products.
+        </p>
+
+    </div>
+
+
+    <div>
+
+        <h3>Quick Links</h3>
+
+        <ul class="footer-links">
+
+            <li>
+                <a href="#">Home</a>
+            </li>
+
+            <li>
+                <a href="#products">Products</a>
+            </li>
+
+            <li>
+                <a href="#categories">Categories</a>
+            </li>
+
+            <li>
+                <a href="#sale">Offers</a>
+            </li>
+
+        </ul>
+
+    </div>
+
+
+    <div>
+
+        <h3>Contact</h3>
+
+        <p>
+            support@shopease.com
+        </p>
+
+        <p>
+            +91 98765 43210
+        </p>
+
+    </div>
+
+</footer>
+
+
+</body>
+</html>

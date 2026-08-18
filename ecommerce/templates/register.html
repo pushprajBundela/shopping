@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Register</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+
+            background: linear-gradient(
+                135deg,
+                #667eea,
+                #764ba2
+            );
+        }
+
+        /* Animated Background */
+        .circle {
+            position: absolute;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.15);
+            animation: float 8s infinite ease-in-out;
+        }
+
+        .circle:nth-child(1) {
+            width: 200px;
+            height: 200px;
+            top: 10%;
+            left: 10%;
+        }
+
+        .circle:nth-child(2) {
+            width: 300px;
+            height: 300px;
+            bottom: -100px;
+            right: 5%;
+            animation-delay: 2s;
+        }
+
+        .circle:nth-child(3) {
+            width: 120px;
+            height: 120px;
+            top: 60%;
+            left: 25%;
+            animation-delay: 4s;
+        }
+
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0) rotate(0deg);
+            }
+
+            50% {
+                transform: translateY(-40px) rotate(180deg);
+            }
+        }
+
+        /* Register Box */
+        .register-box {
+            position: relative;
+            width: 420px;
+            padding: 40px;
+
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            border-radius: 25px;
+
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.25);
+
+            animation: slideUp 1s ease;
+        }
+
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(80px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        h2 {
+            text-align: center;
+            color: white;
+            font-size: 32px;
+            margin-bottom: 30px;
+        }
+
+        /* Input */
+        .input-box {
+            position: relative;
+            margin-bottom: 20px;
+        }
+
+        .input-box input {
+            width: 100%;
+            padding: 14px 15px;
+
+            border: none;
+            outline: none;
+
+            border-radius: 10px;
+
+            background: rgba(255, 255, 255, 0.9);
+
+            font-size: 15px;
+
+            transition: 0.3s;
+        }
+
+        .input-box input:focus {
+            transform: scale(1.03);
+            box-shadow: 0 0 15px rgba(255,255,255,0.7);
+        }
+
+        /* Button */
+        .register-btn {
+            width: 100%;
+            padding: 14px;
+
+            border: none;
+            border-radius: 10px;
+
+            background: white;
+            color: #764ba2;
+
+            font-size: 17px;
+            font-weight: bold;
+
+            cursor: pointer;
+
+            transition: 0.3s;
+        }
+
+        .register-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.25);
+        }
+
+        .register-btn:active {
+            transform: scale(0.95);
+        }
+
+        .login-link {
+            text-align: center;
+            margin-top: 20px;
+            color: white;
+        }
+
+        .login-link a {
+            color: white;
+            font-weight: bold;
+            text-decoration: none;
+        }
+
+        .login-link a:hover {
+            text-decoration: underline;
+        }
+
+        /* Password Strength */
+        .strength {
+            height: 5px;
+            width: 0%;
+            background: red;
+            border-radius: 10px;
+            margin-top: 5px;
+            transition: 0.3s;
+        }
+
+        @media (max-width: 500px) {
+            .register-box {
+                width: 90%;
+                padding: 30px 20px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Background Animation -->
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+
+
+    <!-- Register Form -->
+    <div class="register-box">
+
+        <h2>Create Account</h2>
+        {% if error %}
+            <h4 style="color: black;">{{ error }}</h4>
+        {% endif %}
+
+        <form action="{% url 'register' %}" method="post" onsubmit="registerUser(event)">
+            {% csrf_token %}  
+
+            <div class="input-box">
+                <input
+                    type="text"
+                    id="name"
+                    name="full_name"
+                    placeholder="Full Name"
+                    required
+                >
+            </div>
+
+            <div class="input-box">
+                <input
+                    type="email"
+                    id="email"
+                    name="email"
+                    placeholder="Email Address"
+                    required
+                >
+            </div>
+
+            <div class="input-box">
+                <input
+                    type="text"
+                    id="username"
+                    name="name"
+                    placeholder="Username"
+                    required
+                >
+            </div>
+
+            <div class="input-box">
+                <input
+                    type="password"
+                    id="password"
+                    name="password"
+                    placeholder="Password"
+                    oninput="checkPassword()"
+                    required
+                >
+
+                <div class="strength" id="strength"></div>
+            </div>
+
+            <div class="input-box">
+                <input
+                    type="password"
+                    id="confirmPassword"
+                    name="cpassword"
+                    placeholder="Confirm Password"
+                    required
+                >
+            </div>
+
+            <button class="register-btn" type="submit">
+                Create Account
+            </button>
+
+        </form>
+
+        <div class="login-link">
+            Already have an account?
+            <a href="{% url 'userlogin'%}">Login</a>
+        </div>
+
+    </div>
+
+
+    <script>
+
+        // Password Strength
+        function checkPassword() {
+
+            let password = document.getElementById("password").value;
+            let strength = document.getElementById("strength");
+
+            if (password.length === 0) {
+                strength.style.width = "0%";
+            }
+
+            else if (password.length < 5) {
+                strength.style.width = "30%";
+                strength.style.background = "red";
+            }
+
+            else if (password.length < 8) {
+                strength.style.width = "60%";
+                strength.style.background = "orange";
+            }
+
+            else {
+                strength.style.width = "100%";
+                strength.style.background = "limegreen";
+            }
+        }
+    </script>
+
+</body>
+</html>
