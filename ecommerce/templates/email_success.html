@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Email Sent Successfully</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+        }
+
+        .container {
+            width: 420px;
+            max-width: 90%;
+            background: #ffffff;
+            padding: 45px 35px;
+            border-radius: 18px;
+            text-align: center;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
+        }
+
+        .success-icon {
+            width: 80px;
+            height: 80px;
+            margin: 0 auto 22px;
+            background: #e8f8ee;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 40px;
+        }
+
+        h1 {
+            color: #222;
+            font-size: 27px;
+            margin-bottom: 15px;
+        }
+
+        .message {
+            color: #666;
+            font-size: 15px;
+            line-height: 1.7;
+            margin-bottom: 25px;
+        }
+
+        .info-box {
+            background: #f5f7ff;
+            padding: 14px;
+            border-radius: 9px;
+            color: #555;
+            font-size: 13px;
+            line-height: 1.6;
+            margin-bottom: 25px;
+        }
+
+        .login-btn {
+            display: inline-block;
+            width: 100%;
+            padding: 13px;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            text-decoration: none;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: bold;
+            transition: 0.3s ease;
+        }
+
+        .login-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(102, 126, 234, 0.35);
+        }
+
+        .footer {
+            margin-top: 22px;
+            color: #999;
+            font-size: 12px;
+        }
+
+        @media (max-width: 480px) {
+            .container {
+                padding: 35px 25px;
+            }
+
+            h1 {
+                font-size: 24px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+
+        <div class="success-icon">
+            ✅
+        </div>
+
+        <h1>Email Sent Successfully</h1>
+
+        <p class="message">
+            Your email has been sent successfully.
+            Please check your inbox for further instructions.
+        </p>
+
+        <div class="info-box">
+            📧 If you don't see the email, please check your
+            <strong>Spam</strong> or <strong>Junk</strong> folder.
+        </div>
+
+        <a href="{% url 'userlogin' %}" class="login-btn">
+            Back to Login
+        </a>
+
+        <div class="footer">
+            © 2026 Your E-Commerce Website
+        </div>
+
+    </div>
+
+</body>
+</html>

@@ -23,6 +23,9 @@
             background: #f7f8fc;
             color: #222;
         }
+        a {
+            text-decoration: none;
+        }
 
         /* ================= NAVBAR ================= */
 
@@ -676,8 +679,7 @@
 
 
     <div class="categories">
-
-        <div class="category">
+        <a href="{% url 'fashion'%}"><div class="category">
 
             <div class="category-icon">
                 👕
@@ -689,12 +691,13 @@
                 Latest fashion trends
             </p>
 
-        </div>
+            </div>
+        </a>
+        
 
 
         <div class="category">
-
-            <div class="category-icon">
+            <a href="{% url 'electronic'%}"><div class="category-icon">
                 📱
             </div>
 
@@ -703,13 +706,14 @@
             <p>
                 Smart gadgets & devices
             </p>
+            </a>
+            
 
         </div>
 
 
         <div class="category">
-
-            <div class="category-icon">
+            <a href="{% url 'footware'%}"><div class="category-icon">
                 👟
             </div>
 
@@ -717,14 +721,14 @@
 
             <p>
                 Shoes for every occasion
-            </p>
+            </p></a>
+            
 
         </div>
 
 
         <div class="category">
-
-            <div class="category-icon">
+            <a href="{% url 'homerelated'%}"><div class="category-icon">
                 🏠
             </div>
 
@@ -732,7 +736,9 @@
 
             <p>
                 Make your home beautiful
-            </p>
+            </p></a>
+
+            
 
         </div>
 

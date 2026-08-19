@@ -4,6 +4,9 @@ from django.contrib.auth.models import User
 from django.contrib.auth import authenticate,login,logout
 from django.contrib.auth import update_session_auth_hash
 
+from django.core.mail import send_mail
+from django.conf import settings
+
 # Create your views here.
 
 def register(request):
@@ -21,6 +24,10 @@ def register(request):
             return render(request, 'register.html', {
                 'error': 'Username already exists'
             })
+        if User.objects.filter(email=email).exists():
+                    return render(request, 'register.html', {
+                        'error': 'Email already exists'
+                    })
 
         user=User.objects.create_user(
             username=user_name,
@@ -54,7 +61,7 @@ def userlogin(request):
             login(request,user)
             return redirect('homepage')
         else:
-            return render(request,'userlogin.html',{'errror':'Invalid user name or password'})
+            return render(request,'userlogin.html',{'error':'Invalid user name or password'})
 
     return render(request,'userlogin.html')
 
@@ -83,3 +90,27 @@ def setting(request):
 
 def homepage(request):
     return render(request,'homepage.html')
+
+
+def test_email(request):
+    send_mail(
+        'ShopEase Test Email',
+        'Ye email Django se successfully send hui hai.',
+        settings.EMAIL_HOST_USER,
+        ['pushprajbundela63@gmail.com'],
+        fail_silently=False,
+    )
+
+    return render(request, 'email_success.html')
+
+def fashion(request):
+    return render(request,'fashion.html')
+
+def electronic(request):
+    return render(request,'electronic.html')
+
+def footwear(request):
+    return render(request,'footwear.html')
+
+def homerelated(request):
+    return render(request,'homerelated.html')

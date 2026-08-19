@@ -1,0 +1,1490 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>ShopEase - Home & Living</title>
+
+    <style>
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background: #f7f8fc;
+            color: #222;
+        }
+
+
+        /* ================= NAVBAR ================= */
+
+        nav {
+            height: 75px;
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 7%;
+            background: white;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 15px rgba(0,0,0,0.08);
+        }
+
+        .logo {
+            font-size: 28px;
+            font-weight: bold;
+            color: #667eea;
+        }
+
+        .logo span {
+            color: #764ba2;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 30px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #333;
+            font-weight: 500;
+            transition: 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: #667eea;
+        }
+
+        .nav-icons {
+            display: flex;
+            gap: 20px;
+        }
+
+        .nav-icons span {
+            font-size: 22px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .nav-icons span:hover {
+            transform: scale(1.1);
+        }
+
+
+        /* ================= HERO ================= */
+
+        .hero {
+            min-height: 520px;
+
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            padding: 60px 8%;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #8e9eab,
+                    #eef2f3
+                );
+
+            color: #222;
+
+            overflow: hidden;
+        }
+
+        .hero-content {
+            width: 50%;
+            animation: slideLeft 1s ease;
+        }
+
+        .small-title {
+            color: #667eea;
+            font-size: 14px;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
+
+        .hero-content h1 {
+            font-size: 58px;
+            line-height: 1.08;
+            margin-bottom: 20px;
+        }
+
+        .hero-content h1 span {
+            color: #764ba2;
+        }
+
+        .hero-content p {
+            max-width: 520px;
+            font-size: 18px;
+            line-height: 1.7;
+            color: #555;
+            margin-bottom: 30px;
+        }
+
+        .shop-btn {
+            display: inline-block;
+            padding: 15px 32px;
+            background: #667eea;
+            color: white;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        .shop-btn:hover {
+            transform: translateY(-5px);
+            background: #764ba2;
+        }
+
+        .hero-image {
+            width: 45%;
+            display: flex;
+            justify-content: center;
+            animation: floating 4s infinite ease-in-out;
+        }
+
+        .hero-image img {
+            width: 430px;
+            height: 420px;
+            object-fit: cover;
+            border-radius: 30px;
+            box-shadow: 0 25px 50px rgba(0,0,0,0.25);
+        }
+
+        @keyframes slideLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-80px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes floating {
+            0%,100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-18px);
+            }
+        }
+
+
+        /* ================= SECTION ================= */
+
+        .section {
+            padding: 70px 8%;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 45px;
+        }
+
+        .section-title h2 {
+            font-size: 36px;
+            margin-bottom: 10px;
+        }
+
+        .section-title p {
+            color: #777;
+        }
+
+
+        /* ================= CATEGORIES ================= */
+
+        .categories {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 25px;
+        }
+
+        .category {
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.06);
+            transition: 0.4s;
+            cursor: pointer;
+        }
+
+        .category:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.12);
+        }
+
+        .category-image {
+            height: 220px;
+            overflow: hidden;
+        }
+
+        .category-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: 0.5s;
+        }
+
+        .category:hover img {
+            transform: scale(1.08);
+        }
+
+        .category-info {
+            text-align: center;
+            padding: 20px;
+        }
+
+        .category-info h3 {
+            margin-bottom: 8px;
+        }
+
+        .category-info p {
+            color: #888;
+            font-size: 14px;
+        }
+
+
+        /* ================= PRODUCTS ================= */
+
+        .products {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 25px;
+        }
+
+        .product-card {
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.06);
+            transition: 0.4s;
+        }
+
+        .product-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.12);
+        }
+
+        .product-image {
+            height: 280px;
+            position: relative;
+            overflow: hidden;
+            background: #f0f2ff;
+        }
+
+        .product-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: 0.5s;
+        }
+
+        .product-card:hover .product-image img {
+            transform: scale(1.07);
+        }
+
+        .sale-badge {
+            position: absolute;
+            top: 15px;
+            left: 15px;
+            background: #ff5b5b;
+            color: white;
+            padding: 7px 12px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: bold;
+            z-index: 2;
+        }
+
+        .heart {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            width: 42px;
+            height: 42px;
+            border-radius: 50%;
+            border: none;
+            background: white;
+            font-size: 20px;
+            cursor: pointer;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            z-index: 2;
+        }
+
+        .product-info {
+            padding: 20px;
+        }
+
+        .product-info h3 {
+            margin-bottom: 8px;
+        }
+
+        .product-category {
+            color: #999;
+            font-size: 13px;
+            margin-bottom: 8px;
+        }
+
+        .rating {
+            color: #f5b301;
+            margin-bottom: 12px;
+        }
+
+        .price {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 15px;
+        }
+
+        .price strong {
+            font-size: 21px;
+            color: #667eea;
+        }
+
+        .old-price {
+            color: #999;
+            text-decoration: line-through;
+            font-size: 14px;
+        }
+
+        .buttons {
+            display: flex;
+            gap: 8px;
+        }
+
+        .cart-btn,
+        .buy-btn {
+            flex: 1;
+            border: none;
+            padding: 11px;
+            border-radius: 20px;
+            color: white;
+            font-weight: bold;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .cart-btn {
+            background: #667eea;
+        }
+
+        .buy-btn {
+            background: #764ba2;
+        }
+
+        .cart-btn:hover,
+        .buy-btn:hover {
+            transform: scale(1.04);
+        }
+
+
+        /* ================= SALE ================= */
+
+        .sale {
+            margin: 20px 8% 70px;
+            min-height: 280px;
+            border-radius: 25px;
+            padding: 50px;
+
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #667eea,
+                    #764ba2
+                );
+
+            color: white;
+        }
+
+        .sale-content h2 {
+            font-size: 45px;
+            margin-bottom: 10px;
+        }
+
+        .sale-content p {
+            font-size: 18px;
+            margin-bottom: 25px;
+        }
+
+        .sale-btn {
+            display: inline-block;
+            background: white;
+            color: #667eea;
+            padding: 13px 25px;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .sale-icon {
+            font-size: 130px;
+        }
+
+
+        /* ================= FOOTER ================= */
+
+        footer {
+            background: #171827;
+            color: white;
+            padding: 50px 8%;
+
+            display: flex;
+            justify-content: space-between;
+            gap: 40px;
+        }
+
+        footer h3 {
+            margin-bottom: 15px;
+        }
+
+        footer p {
+            color: #aaa;
+            line-height: 1.7;
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 10px;
+        }
+
+        .footer-links a {
+            color: #aaa;
+            text-decoration: none;
+        }
+
+        .footer-links a:hover {
+            color: white;
+        }
+
+
+
+        /* ================= RESPONSIVE ================= */
+
+        @media(max-width: 1000px) {
+
+            .categories,
+            .products {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+        }
+
+        @media(max-width: 900px) {
+
+            .nav-links {
+                display: none;
+            }
+
+            .hero {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .hero-content {
+                width: 100%;
+            }
+
+            .hero-image {
+                width: 100%;
+                margin-top: 40px;
+            }
+
+        }
+
+        @media(max-width: 600px) {
+
+            .categories,
+            .products {
+                grid-template-columns: 1fr;
+            }
+
+            .hero-content h1 {
+                font-size: 42px;
+            }
+
+            .hero-image img {
+                width: 300px;
+                height: 350px;
+            }
+
+            .sale {
+                flex-direction: column;
+                text-align: center;
+                padding: 35px 20px;
+            }
+
+            .sale-content h2 {
+                font-size: 32px;
+            }
+
+            footer {
+                flex-direction: column;
+            }
+
+        }
+
+    </style>
+</head>
+
+
+<body>
+
+
+<!-- ================= NAVBAR ================= -->
+
+<nav>
+
+    <div class="logo">
+        Shop<span>Ease</span>
+    </div>
+
+    <ul class="nav-links">
+
+        <li>
+            <a href="{% url 'homepage' %}">
+                Home
+            </a>
+        </li>
+
+        <li>
+            <a href="#categories">
+                Categories
+            </a>
+        </li>
+
+        <li>
+            <a href="#products">
+                Products
+            </a>
+        </li>
+
+        <li>
+            <a href="#offers">
+                Offers
+            </a>
+        </li>
+
+        <li>
+            <a href="{% url 'setting' %}">
+                Setting
+            </a>
+        </li>
+
+    </ul>
+
+    <div class="nav-icons">
+        <span>🔍</span>
+        <span>🛒</span>
+        <span>👤</span>
+    </div>
+
+</nav>
+
+
+<!-- ================= HERO ================= -->
+
+<section class="hero">
+
+    <div class="hero-content">
+
+        <div class="small-title">
+            ShopEase Home & Living
+        </div>
+
+        <h1>
+            Make Your
+            <span>Home Beautiful.</span>
+        </h1>
+
+        <p>
+            Discover beautiful furniture, stylish home
+            decor, kitchen essentials, lighting and
+            everything you need to make your home
+            comfortable and elegant.
+        </p>
+
+        <a href="#products" class="shop-btn">
+            Shop Home → 
+        </a>
+
+    </div>
+
+
+    <div class="hero-image">
+
+        <img
+            src="https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&w=900&q=85"
+            alt="Beautiful Home">
+
+    </div>
+
+</section>
+
+
+<!-- ================= CATEGORIES ================= -->
+
+<section class="section" id="categories">
+
+    <div class="section-title">
+
+        <h2>
+            Shop By Category
+        </h2>
+
+        <p>
+            Everything your home needs
+        </p>
+
+    </div>
+
+
+    <div class="categories">
+
+
+        <!-- FURNITURE -->
+
+        <div class="category">
+
+            <div class="category-image">
+
+                <img
+                    src="https://images.unsplash.com/photo-1555041469-a586c61ea9bc?auto=format&fit=crop&w=700&q=85"
+                    alt="Furniture">
+
+            </div>
+
+            <div class="category-info">
+
+                <h3>
+                    Furniture
+                </h3>
+
+                <p>
+                    Sofas, tables & chairs
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <!-- DECOR -->
+
+        <div class="category">
+
+            <div class="category-image">
+
+                <img
+                    src="https://images.unsplash.com/photo-1513506003901-1e6a229e2d15?auto=format&fit=crop&w=700&q=85"
+                    alt="Home Decor">
+
+            </div>
+
+            <div class="category-info">
+
+                <h3>
+                    Home Decor
+                </h3>
+
+                <p>
+                    Make your space beautiful
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <!-- KITCHEN -->
+
+        <div class="category">
+
+            <div class="category-image">
+
+                <img
+                    src="https://images.unsplash.com/photo-1556911220-e15b29be8c8f?auto=format&fit=crop&w=700&q=85"
+                    alt="Kitchen">
+
+            </div>
+
+            <div class="category-info">
+
+                <h3>
+                    Kitchen
+                </h3>
+
+                <p>
+                    Smart kitchen essentials
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <!-- LIGHTING -->
+
+        <div class="category">
+
+            <div class="category-image">
+
+                <img
+                    src="https://images.unsplash.com/photo-1507473885765-e6ed057f782c?auto=format&fit=crop&w=700&q=85"
+                    alt="Lighting">
+
+            </div>
+
+            <div class="category-info">
+
+                <h3>
+                    Lighting
+                </h3>
+
+                <p>
+                    Lamps & decorative lights
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ================= PRODUCTS ================= -->
+
+<section class="section" id="products">
+
+    <div class="section-title">
+
+        <h2>
+            Trending Home Products
+        </h2>
+
+        <p>
+            Popular products for your home
+        </p>
+
+    </div>
+
+
+    <div class="products">
+
+
+        <!-- PRODUCT 1 -->
+
+        <div class="product-card">
+
+            <div class="product-image">
+
+                <span class="sale-badge">
+                    20% OFF
+                </span>
+
+                <button class="heart">
+                    ♡
+                </button>
+
+                <img
+                    src="https://images.unsplash.com/photo-1555041469-a586c61ea9bc?auto=format&fit=crop&w=700&q=85"
+                    alt="Sofa">
+
+            </div>
+
+            <div class="product-info">
+
+                <h3>
+                    Modern Comfortable Sofa
+                </h3>
+
+                <div class="product-category">
+                    Furniture
+                </div>
+
+                <div class="rating">
+                    ★★★★★
+                </div>
+
+                <div class="price">
+
+                    <strong>
+                        ₹18,999
+                    </strong>
+
+                    <span class="old-price">
+                        ₹23,999
+                    </span>
+
+                </div>
+
+                <div class="buttons">
+
+                    <button class="cart-btn"
+                            onclick="addToCart('Modern Comfortable Sofa')">
+
+                        Add to Cart
+
+                    </button>
+
+                    <button class="buy-btn"
+                            onclick="buyNow('Modern Comfortable Sofa')">
+
+                        Buy Now
+
+                    </button>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- PRODUCT 2 -->
+
+        <div class="product-card">
+
+            <div class="product-image">
+
+                <span class="sale-badge">
+                    30% OFF
+                </span>
+
+                <button class="heart">
+                    ♡
+                </button>
+
+                <img
+                    src="https://images.unsplash.com/photo-1513506003901-1e6a229e2d15?auto=format&fit=crop&w=700&q=85"
+                    alt="Lamp">
+
+            </div>
+
+            <div class="product-info">
+
+                <h3>
+                    Decorative Table Lamp
+                </h3>
+
+                <div class="product-category">
+                    Lighting
+                </div>
+
+                <div class="rating">
+                    ★★★★☆
+                </div>
+
+                <div class="price">
+
+                    <strong>
+                        ₹1,299
+                    </strong>
+
+                    <span class="old-price">
+                        ₹1,899
+                    </span>
+
+                </div>
+
+                <div class="buttons">
+
+                    <button class="cart-btn"
+                            onclick="addToCart('Decorative Table Lamp')">
+
+                        Add to Cart
+
+                    </button>
+
+                    <button class="buy-btn"
+                            onclick="buyNow('Decorative Table Lamp')">
+
+                        Buy Now
+
+                    </button>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- PRODUCT 3 -->
+
+        <div class="product-card">
+
+            <div class="product-image">
+
+                <span class="sale-badge">
+                    15% OFF
+                </span>
+
+                <button class="heart">
+                    ♡
+                </button>
+
+                <img
+                    src="https://images.unsplash.com/photo-1556911220-e15b29be8c8f?auto=format&fit=crop&w=700&q=85"
+                    alt="Kitchen">
+
+            </div>
+
+            <div class="product-info">
+
+                <h3>
+                    Premium Kitchen Set
+                </h3>
+
+                <div class="product-category">
+                    Kitchen
+                </div>
+
+                <div class="rating">
+                    ★★★★★
+                </div>
+
+                <div class="price">
+
+                    <strong>
+                        ₹2,499
+                    </strong>
+
+                    <span class="old-price">
+                        ₹2,999
+                    </span>
+
+                </div>
+
+                <div class="buttons">
+
+                    <button class="cart-btn"
+                            onclick="addToCart('Premium Kitchen Set')">
+
+                        Add to Cart
+
+                    </button>
+
+                    <button class="buy-btn"
+                            onclick="buyNow('Premium Kitchen Set')">
+
+                        Buy Now
+
+                    </button>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- PRODUCT 4 -->
+
+        <div class="product-card">
+
+            <div class="product-image">
+
+                <span class="sale-badge">
+                    25% OFF
+                </span>
+
+                <button class="heart">
+                    ♡
+                </button>
+
+                <img
+                    src="https://images.unsplash.com/photo-1586023492125-27b2c045efd7?auto=format&fit=crop&w=700&q=85"
+                    alt="Chair">
+
+            </div>
+
+            <div class="product-info">
+
+                <h3>
+                    Modern Wooden Chair
+                </h3>
+
+                <div class="product-category">
+                    Furniture
+                </div>
+
+                <div class="rating">
+                    ★★★★☆
+                </div>
+
+                <div class="price">
+
+                    <strong>
+                        ₹4,499
+                    </strong>
+
+                    <span class="old-price">
+                        ₹5,999
+                    </span>
+
+                </div>
+
+                <div class="buttons">
+
+                    <button class="cart-btn"
+                            onclick="addToCart('Modern Wooden Chair')">
+
+                        Add to Cart
+
+                    </button>
+
+                    <button class="buy-btn"
+                            onclick="buyNow('Modern Wooden Chair')">
+
+                        Buy Now
+
+                    </button>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- PRODUCT 5 -->
+
+        <div class="product-card">
+
+            <div class="product-image">
+
+                <span class="sale-badge">
+                    20% OFF
+                </span>
+
+                <button class="heart">
+                    ♡
+                </button>
+
+                <img
+                    src="https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?auto=format&fit=crop&w=700&q=85"
+                    alt="Home Decor">
+
+            </div>
+
+            <div class="product-info">
+
+                <h3>
+                    Premium Home Decor
+                </h3>
+
+                <div class="product-category">
+                    Home Decor
+                </div>
+
+                <div class="rating">
+                    ★★★★★
+                </div>
+
+                <div class="price">
+
+                    <strong>
+                        ₹1,599
+                    </strong>
+
+                    <span class="old-price">
+                        ₹1,999
+                    </span>
+
+                </div>
+
+                <div class="buttons">
+
+                    <button class="cart-btn"
+                            onclick="addToCart('Premium Home Decor')">
+
+                        Add to Cart
+
+                    </button>
+
+                    <button class="buy-btn"
+                            onclick="buyNow('Premium Home Decor')">
+
+                        Buy Now
+
+                    </button>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- PRODUCT 6 -->
+
+        <div class="product-card">
+
+            <div class="product-image">
+
+                <span class="sale-badge">
+                    35% OFF
+                </span>
+
+                <button class="heart">
+                    ♡
+                </button>
+
+                <img
+                    src="https://images.unsplash.com/photo-1583845112203-454c7e4e0b04?auto=format&fit=crop&w=700&q=85"
+                    alt="Bedroom">
+
+            </div>
+
+            <div class="product-info">
+
+                <h3>
+                    Soft Bed Cushion
+                </h3>
+
+                <div class="product-category">
+                    Bedroom
+                </div>
+
+                <div class="rating">
+                    ★★★★★
+                </div>
+
+                <div class="price">
+
+                    <strong>
+                        ₹899
+                    </strong>
+
+                    <span class="old-price">
+                        ₹1,399
+                    </span>
+
+                </div>
+
+                <div class="buttons">
+
+                    <button class="cart-btn"
+                            onclick="addToCart('Soft Bed Cushion')">
+
+                        Add to Cart
+
+                    </button>
+
+                    <button class="buy-btn"
+                            onclick="buyNow('Soft Bed Cushion')">
+
+                        Buy Now
+
+                    </button>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- PRODUCT 7 -->
+
+        <div class="product-card">
+
+            <div class="product-image">
+
+                <span class="sale-badge">
+                    20% OFF
+                </span>
+
+                <button class="heart">
+                    ♡
+                </button>
+
+                <img
+                    src="https://images.unsplash.com/photo-1493663284031-b7e3aefcae8e?auto=format&fit=crop&w=700&q=85"
+                    alt="Home Interior">
+
+            </div>
+
+            <div class="product-info">
+
+                <h3>
+                    Modern Floor Carpet
+                </h3>
+
+                <div class="product-category">
+                    Home Decor
+                </div>
+
+                <div class="rating">
+                    ★★★★☆
+                </div>
+
+                <div class="price">
+
+                    <strong>
+                        ₹2,199
+                    </strong>
+
+                    <span class="old-price">
+                        ₹2,799
+                    </span>
+
+                </div>
+
+                <div class="buttons">
+
+                    <button class="cart-btn"
+                            onclick="addToCart('Modern Floor Carpet')">
+
+                        Add to Cart
+
+                    </button>
+
+                    <button class="buy-btn"
+                            onclick="buyNow('Modern Floor Carpet')">
+
+                        Buy Now
+
+                    </button>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- PRODUCT 8 -->
+
+        <div class="product-card">
+
+            <div class="product-image">
+
+                <span class="sale-badge">
+                    40% OFF
+                </span>
+
+                <button class="heart">
+                    ♡
+                </button>
+
+                <img
+                    src="https://images.unsplash.com/photo-1594224457860-23bdb45f8b6c?auto=format&fit=crop&w=700&q=85"
+                    alt="Storage">
+
+            </div>
+
+            <div class="product-info">
+
+                <h3>
+                    Home Storage Organizer
+                </h3>
+
+                <div class="product-category">
+                    Home Essentials
+                </div>
+
+                <div class="rating">
+                    ★★★★★
+                </div>
+
+                <div class="price">
+
+                    <strong>
+                        ₹799
+                    </strong>
+
+                    <span class="old-price">
+                        ₹1,299
+                    </span>
+
+                </div>
+
+                <div class="buttons">
+
+                    <button class="cart-btn"
+                            onclick="addToCart('Home Storage Organizer')">
+
+                        Add to Cart
+
+                    </button>
+
+                    <button class="buy-btn"
+                            onclick="buyNow('Home Storage Organizer')">
+
+                        Buy Now
+
+                    </button>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ================= SALE ================= -->
+
+<section class="sale" id="offers">
+
+    <div class="sale-content">
+
+        <h2>
+            Home Mega Sale 🔥
+        </h2>
+
+        <p>
+            Get up to 50% OFF on selected home products.
+        </p>
+
+        <a href="#products" class="sale-btn">
+            Shop Sale
+        </a>
+
+    </div>
+
+    <div class="sale-icon">
+        🏠
+    </div>
+
+</section>
+
+
+<!-- ================= FOOTER ================= -->
+
+<footer>
+
+    <div>
+
+        <h3>
+            ShopEase
+        </h3>
+
+        <p>
+            Your one-stop destination for
+            fashion, electronics and home products.
+        </p>
+
+    </div>
+
+
+    <div>
+
+        <h3>
+            Quick Links
+        </h3>
+
+        <ul class="footer-links">
+
+            <li>
+                <a href="{% url 'homepage' %}">
+                    Home
+                </a>
+            </li>
+
+            <li>
+                <a href="#products">
+                    Products
+                </a>
+            </li>
+
+            <li>
+                <a href="#categories">
+                    Categories
+                </a>
+            </li>
+
+            <li>
+                <a href="#offers">
+                    Offers
+                </a>
+            </li>
+
+        </ul>
+
+    </div>
+
+
+    <div>
+
+        <h3>
+            Contact
+        </h3>
+
+        <p>
+            support@shopease.com
+        </p>
+
+        <p>
+            +91 98765 43210
+        </p>
+
+    </div>
+
+</footer>
+
+
+<script>
+
+    function addToCart(productName) {
+
+        alert(
+            productName +
+            " has been added to your cart."
+        );
+
+    }
+
+
+    function buyNow(productName) {
+
+        alert(
+            "You selected: " +
+            productName +
+            "\n\nProceeding to checkout..."
+        );
+
+    }
+
+
+</script>
+
+</body>
+</html>

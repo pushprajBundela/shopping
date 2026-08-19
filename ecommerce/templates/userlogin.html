@@ -416,6 +416,9 @@
 
         <!-- Right Section -->
         <div class="right">
+            {% if error %}
+                <h3 style="color: #db4437;">{{error}}</h3>
+            {% endif %}
 
             <h2>Login</h2>
 
@@ -471,7 +474,7 @@
                         Remember me
                     </label>
 
-                    <a href="#" class="forgot">
+                    <a href="{% url 'password_reset' %}" class="forgot">
                         Forgot Password?
                     </a>
 

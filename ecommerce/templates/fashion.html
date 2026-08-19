@@ -1,0 +1,1793 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>ShopEase - Fashion</title>
+
+    <style>
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background: #f7f8fc;
+            color: #222;
+        }
+
+        /* ================= NAVBAR ================= */
+
+        nav {
+            height: 75px;
+            width: 100%;
+
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            padding: 0 7%;
+
+            background: white;
+
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+
+            box-shadow: 0 2px 15px rgba(0,0,0,0.08);
+        }
+
+        .logo {
+            font-size: 28px;
+            font-weight: bold;
+            color: #667eea;
+        }
+
+        .logo span {
+            color: #764ba2;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 30px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #333;
+            font-weight: 500;
+            transition: 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: #667eea;
+        }
+
+        .nav-icons {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .nav-icons span {
+            font-size: 22px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .nav-icons span:hover {
+            transform: translateY(-3px) scale(1.1);
+        }
+
+
+        /* ================= FASHION HERO ================= */
+
+        .fashion-hero {
+            min-height: 480px;
+
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            padding: 50px 8%;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    rgba(102,126,234,0.95),
+                    rgba(118,75,162,0.95)
+                );
+
+            color: white;
+            overflow: hidden;
+        }
+
+        .fashion-content {
+            width: 50%;
+            animation: slideLeft 1s ease;
+        }
+
+        .fashion-content .small-title {
+            font-size: 16px;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            margin-bottom: 15px;
+            color: #ffd166;
+            font-weight: bold;
+        }
+
+        .fashion-content h1 {
+            font-size: 58px;
+            line-height: 1.1;
+            margin-bottom: 20px;
+        }
+
+        .fashion-content h1 span {
+            color: #ffd166;
+        }
+
+        .fashion-content p {
+            max-width: 520px;
+            line-height: 1.7;
+            font-size: 17px;
+            color: rgba(255,255,255,0.88);
+            margin-bottom: 28px;
+        }
+
+        .shop-btn {
+            display: inline-block;
+
+            padding: 14px 30px;
+
+            background: white;
+            color: #667eea;
+
+            border-radius: 30px;
+
+            text-decoration: none;
+            font-weight: bold;
+
+            transition: 0.3s;
+
+            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+        }
+
+        .shop-btn:hover {
+            transform: translateY(-5px);
+        }
+
+        .fashion-image {
+            width: 45%;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            animation: floatImage 4s infinite ease-in-out;
+        }
+
+        .fashion-image img {
+            width: 390px;
+            height: 430px;
+
+            object-fit: cover;
+
+            border-radius: 25px;
+
+            box-shadow:
+                0 25px 50px rgba(0,0,0,0.3);
+
+            border: 5px solid rgba(255,255,255,0.2);
+        }
+
+
+        @keyframes slideLeft {
+
+            from {
+                opacity: 0;
+                transform: translateX(-80px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+
+        }
+
+
+        @keyframes floatImage {
+
+            0%, 100% {
+                transform: translateY(0) rotate(1deg);
+            }
+
+            50% {
+                transform: translateY(-15px) rotate(-1deg);
+            }
+
+        }
+
+
+        /* ================= SECTION ================= */
+
+        .section {
+            padding: 70px 8%;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 45px;
+        }
+
+        .section-title h2 {
+            font-size: 36px;
+            margin-bottom: 10px;
+        }
+
+        .section-title p {
+            color: #777;
+        }
+
+
+        /* ================= FASHION CATEGORIES ================= */
+
+        .categories {
+
+            display: grid;
+
+            grid-template-columns:
+                repeat(4, 1fr);
+
+            gap: 25px;
+        }
+
+        .category {
+
+            background: white;
+
+            border-radius: 20px;
+
+            overflow: hidden;
+
+            box-shadow:
+                0 10px 30px rgba(0,0,0,0.06);
+
+            cursor: pointer;
+
+            transition: 0.4s;
+        }
+
+        .category:hover {
+
+            transform: translateY(-10px);
+
+            box-shadow:
+                0 20px 40px rgba(0,0,0,0.12);
+        }
+
+        .category-image {
+
+            height: 220px;
+
+            overflow: hidden;
+        }
+
+        .category-image img {
+
+            width: 100%;
+            height: 100%;
+
+            object-fit: cover;
+
+            transition: 0.5s;
+        }
+
+        .category:hover img {
+
+            transform: scale(1.08);
+        }
+
+        .category-info {
+
+            padding: 20px;
+
+            text-align: center;
+        }
+
+        .category-info h3 {
+
+            margin-bottom: 8px;
+        }
+
+        .category-info p {
+
+            color: #888;
+
+            font-size: 14px;
+        }
+
+
+        /* ================= PRODUCTS ================= */
+
+        .products {
+
+            display: grid;
+
+            grid-template-columns:
+                repeat(4, 1fr);
+
+            gap: 25px;
+        }
+
+        .product-card {
+
+            background: white;
+
+            border-radius: 20px;
+
+            overflow: hidden;
+
+            box-shadow:
+                0 10px 30px rgba(0,0,0,0.06);
+
+            transition: 0.4s;
+        }
+
+        .product-card:hover {
+
+            transform: translateY(-10px);
+
+            box-shadow:
+                0 20px 40px rgba(0,0,0,0.12);
+        }
+
+
+        .product-image {
+
+            height: 330px;
+
+            position: relative;
+
+            overflow: hidden;
+
+            background: #f0f2ff;
+        }
+
+        .product-image img {
+
+            width: 100%;
+            height: 100%;
+
+            object-fit: cover;
+
+            transition: 0.5s;
+        }
+
+        .product-card:hover
+        .product-image img {
+
+            transform: scale(1.07);
+        }
+
+
+        /* SALE BADGE */
+
+        .sale-badge {
+
+            position: absolute;
+
+            top: 15px;
+            left: 15px;
+
+            background: #ff5b5b;
+
+            color: white;
+
+            padding: 7px 12px;
+
+            border-radius: 20px;
+
+            font-size: 12px;
+
+            font-weight: bold;
+
+            z-index: 2;
+        }
+
+
+        /* WISHLIST */
+
+        .heart {
+
+            position: absolute;
+
+            top: 15px;
+            right: 15px;
+
+            width: 42px;
+            height: 42px;
+
+            border-radius: 50%;
+
+            border: none;
+
+            background: white;
+
+            font-size: 20px;
+
+            cursor: pointer;
+
+            box-shadow:
+                0 5px 15px rgba(0,0,0,0.1);
+
+            transition: 0.3s;
+
+            z-index: 2;
+        }
+
+        .heart:hover {
+
+            transform: scale(1.15);
+
+            color: #ff4d6d;
+        }
+
+
+        /* PRODUCT INFO */
+
+        .product-info {
+
+            padding: 20px;
+        }
+
+        .product-info h3 {
+
+            margin-bottom: 8px;
+
+            font-size: 18px;
+        }
+
+        .product-category {
+
+            color: #999;
+
+            font-size: 13px;
+
+            margin-bottom: 8px;
+        }
+
+        .rating {
+
+            color: #f5b301;
+
+            margin-bottom: 12px;
+        }
+
+        .price {
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 10px;
+
+            margin-bottom: 15px;
+        }
+
+        .price strong {
+
+            font-size: 21px;
+
+            color: #667eea;
+        }
+
+        .old-price {
+
+            color: #999;
+
+            text-decoration: line-through;
+
+            font-size: 14px;
+        }
+
+
+        /* BUTTONS */
+
+        .product-buttons {
+
+            display: flex;
+
+            gap: 8px;
+        }
+
+        .cart-btn,
+        .buy-btn {
+
+            flex: 1;
+
+            padding: 11px;
+
+            border: none;
+
+            border-radius: 20px;
+
+            cursor: pointer;
+
+            font-weight: bold;
+
+            transition: 0.3s;
+        }
+
+        .cart-btn {
+
+            background: #667eea;
+
+            color: white;
+        }
+
+        .buy-btn {
+
+            background: #764ba2;
+
+            color: white;
+        }
+
+        .cart-btn:hover,
+        .buy-btn:hover {
+
+            transform: scale(1.04);
+
+            opacity: 0.9;
+        }
+
+
+        /* ================= SALE ================= */
+
+        .sale {
+
+            margin: 20px 8% 70px;
+
+            min-height: 280px;
+
+            border-radius: 25px;
+
+            padding: 50px;
+
+            display: flex;
+
+            justify-content: space-between;
+
+            align-items: center;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #ff6b6b,
+                    #ff8e53
+                );
+
+            color: white;
+
+            overflow: hidden;
+        }
+
+        .sale-content h2 {
+
+            font-size: 45px;
+
+            margin-bottom: 10px;
+        }
+
+        .sale-content p {
+
+            font-size: 18px;
+
+            margin-bottom: 25px;
+        }
+
+        .sale-btn {
+
+            display: inline-block;
+
+            background: white;
+
+            color: #ff6b6b;
+
+            padding: 13px 25px;
+
+            border-radius: 25px;
+
+            text-decoration: none;
+
+            font-weight: bold;
+        }
+
+        .sale-icon {
+
+            font-size: 140px;
+
+            animation: saleFloat 3s infinite ease-in-out;
+        }
+
+        @keyframes saleFloat {
+
+            0%,100% {
+                transform: rotate(-8deg)
+                           translateY(0);
+            }
+
+            50% {
+                transform: rotate(8deg)
+                           translateY(-15px);
+            }
+
+        }
+
+
+        /* ================= FOOTER ================= */
+
+        footer {
+
+            background: #171827;
+
+            color: white;
+
+            padding: 50px 8%;
+
+            display: flex;
+
+            justify-content: space-between;
+
+            gap: 40px;
+        }
+
+        footer h3 {
+
+            margin-bottom: 15px;
+        }
+
+        footer p {
+
+            color: #aaa;
+
+            line-height: 1.7;
+        }
+
+        .footer-links {
+
+            list-style: none;
+        }
+
+        .footer-links li {
+
+            margin-bottom: 10px;
+        }
+
+        .footer-links a {
+
+            color: #aaa;
+
+            text-decoration: none;
+        }
+
+        .footer-links a:hover {
+
+            color: white;
+        }
+
+
+        /* ================= RESPONSIVE ================= */
+
+        @media(max-width: 1000px) {
+
+            .categories,
+            .products {
+
+                grid-template-columns:
+                    repeat(2, 1fr);
+            }
+
+        }
+
+
+        @media(max-width: 900px) {
+
+            .nav-links {
+
+                display: none;
+            }
+
+            .fashion-hero {
+
+                flex-direction: column;
+
+                text-align: center;
+            }
+
+            .fashion-content {
+
+                width: 100%;
+            }
+
+            .fashion-image {
+
+                width: 100%;
+
+                margin-top: 40px;
+            }
+
+        }
+
+
+        @media(max-width: 600px) {
+
+            .categories,
+            .products {
+
+                grid-template-columns: 1fr;
+            }
+
+            .fashion-content h1 {
+
+                font-size: 42px;
+            }
+
+            .fashion-image img {
+
+                width: 300px;
+                height: 350px;
+            }
+
+            .sale {
+
+                flex-direction: column;
+
+                text-align: center;
+
+                padding: 35px 20px;
+            }
+
+            .sale-content h2 {
+
+                font-size: 32px;
+            }
+
+            footer {
+
+                flex-direction: column;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+<!-- ================= NAVBAR ================= -->
+
+<nav>
+
+    <div class="logo">
+        Shop<span>Ease</span>
+    </div>
+
+
+    <ul class="nav-links">
+
+        <li>
+            <a href="{% url 'homepage' %}">
+                Home
+            </a>
+        </li>
+
+        <li>
+            <a href="#categories">
+                Categories
+            </a>
+        </li>
+
+        <li>
+            <a href="#products">
+                Products
+            </a>
+        </li>
+
+        <li>
+            <a href="#sale">
+                Offers
+            </a>
+        </li>
+
+        <li>
+            <a href="{% url 'setting' %}">
+                Setting
+            </a>
+        </li>
+
+    </ul>
+
+
+    <div class="nav-icons">
+
+        <span title="Search">
+            🔍
+        </span>
+
+        <span title="Cart">
+            🛒
+        </span>
+
+        <span title="Profile">
+            👤
+        </span>
+
+    </div>
+
+</nav>
+
+
+
+<!-- ================= HERO ================= -->
+
+<section class="fashion-hero">
+
+    <div class="fashion-content">
+
+        <div class="small-title">
+            ShopEase Fashion
+        </div>
+
+        <h1>
+
+            Wear Your
+            <span>Confidence.</span>
+
+        </h1>
+
+        <p>
+
+            Discover the latest fashion trends,
+            stylish outfits and premium collections
+            for every occasion.
+
+        </p>
+
+        <a href="#products"
+           class="shop-btn">
+
+            Explore Collection →
+
+        </a>
+
+    </div>
+
+
+    <div class="fashion-image">
+
+        <img
+            src="https://images.unsplash.com/photo-1496747611176-843222e1e57c?auto=format&fit=crop&w=800&q=85"
+            alt="Fashion Collection">
+
+    </div>
+
+</section>
+
+
+
+<!-- ================= CATEGORIES ================= -->
+
+<section class="section"
+         id="categories">
+
+
+    <div class="section-title">
+
+        <h2>
+            Fashion Categories
+        </h2>
+
+        <p>
+            Find your perfect style
+        </p>
+
+    </div>
+
+
+    <div class="categories">
+
+
+        <!-- WOMEN -->
+
+        <div class="category">
+
+            <div class="category-image">
+
+                <img
+                    src="https://images.unsplash.com/photo-1483985988355-763728e1935b?auto=format&fit=crop&w=700&q=80"
+                    alt="Women's Fashion">
+
+            </div>
+
+            <div class="category-info">
+
+                <h3>
+                    Women's Fashion
+                </h3>
+
+                <p>
+                    Dresses, Tops & More
+                </p>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- MEN -->
+
+        <div class="category">
+
+            <div class="category-image">
+
+                <img
+                    src="https://images.unsplash.com/photo-1490578474895-699cd4e2cf59?auto=format&fit=crop&w=700&q=80"
+                    alt="Men's Fashion">
+
+            </div>
+
+            <div class="category-info">
+
+                <h3>
+                    Men's Fashion
+                </h3>
+
+                <p>
+                    Shirts, Jeans & More
+                </p>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- SHOES -->
+
+        <div class="category">
+
+            <div class="category-image">
+
+                <img
+                    src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&w=700&q=80"
+                    alt="Shoes">
+
+            </div>
+
+            <div class="category-info">
+
+                <h3>
+                    Footwear
+                </h3>
+
+                <p>
+                    Sneakers & Shoes
+                </p>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- ACCESSORIES -->
+
+        <div class="category">
+
+            <div class="category-image">
+
+                <img
+                    src="https://images.unsplash.com/photo-1523779917675-b6ed3a42a561?auto=format&fit=crop&w=700&q=80"
+                    alt="Accessories">
+
+            </div>
+
+            <div class="category-info">
+
+                <h3>
+                    Accessories
+                </h3>
+
+                <p>
+                    Bags, Watches & More
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- ================= PRODUCTS ================= -->
+
+<section class="section"
+         id="products">
+
+
+    <div class="section-title">
+
+        <h2>
+            Trending Fashion
+        </h2>
+
+        <p>
+            Latest styles picked for you
+        </p>
+
+    </div>
+
+
+    <div class="products">
+
+
+        <!-- PRODUCT 1 -->
+
+        <div class="product-card">
+
+            <div class="product-image">
+
+                <span class="sale-badge">
+                    25% OFF
+                </span>
+
+                <button class="heart"
+                        onclick="wishlist(this)">
+                    ♡
+                </button>
+
+                <img
+                    src="https://images.unsplash.com/photo-1595777457583-95e059d581b8?auto=format&fit=crop&w=700&q=85"
+                    alt="Women's Dress">
+
+            </div>
+
+
+            <div class="product-info">
+
+                <h3>
+                    Elegant Summer Dress
+                </h3>
+
+                <div class="product-category">
+                    Women's Fashion
+                </div>
+
+                <div class="rating">
+                    ★★★★★
+                </div>
+
+                <div class="price">
+
+                    <strong>
+                        ₹1,499
+                    </strong>
+
+                    <span class="old-price">
+                        ₹1,999
+                    </span>
+
+                </div>
+
+
+                <div class="product-buttons">
+
+                    <button class="cart-btn"
+                            onclick="addToCart('Elegant Summer Dress')">
+
+                        Add to Cart
+
+                    </button>
+
+                    <button class="buy-btn"
+                            onclick="buyNow('Elegant Summer Dress')">
+
+                        Buy Now
+
+                    </button>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- PRODUCT 2 -->
+
+        <div class="product-card">
+
+            <div class="product-image">
+
+                <span class="sale-badge">
+                    20% OFF
+                </span>
+
+                <button class="heart"
+                        onclick="wishlist(this)">
+                    ♡
+                </button>
+
+                <img
+                    src="https://images.unsplash.com/photo-1610652492500-ded49ceeb378?auto=format&fit=crop&w=700&q=85"
+                    alt="Men Shirt">
+
+            </div>
+
+
+            <div class="product-info">
+
+                <h3>
+                    Premium Casual Shirt
+                </h3>
+
+                <div class="product-category">
+                    Men's Fashion
+                </div>
+
+                <div class="rating">
+                    ★★★★☆
+                </div>
+
+                <div class="price">
+
+                    <strong>
+                        ₹999
+                    </strong>
+
+                    <span class="old-price">
+                        ₹1,249
+                    </span>
+
+                </div>
+
+
+                <div class="product-buttons">
+
+                    <button class="cart-btn"
+                            onclick="addToCart('Premium Casual Shirt')">
+
+                        Add to Cart
+
+                    </button>
+
+                    <button class="buy-btn"
+                            onclick="buyNow('Premium Casual Shirt')">
+
+                        Buy Now
+
+                    </button>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- PRODUCT 3 -->
+
+        <div class="product-card">
+
+            <div class="product-image">
+
+                <span class="sale-badge">
+                    30% OFF
+                </span>
+
+                <button class="heart"
+                        onclick="wishlist(this)">
+                    ♡
+                </button>
+
+                <img
+                    src="https://images.unsplash.com/photo-1541099649105-f69ad21f3246?auto=format&fit=crop&w=700&q=85"
+                    alt="Denim Jeans">
+
+            </div>
+
+
+            <div class="product-info">
+
+                <h3>
+                    Classic Denim Jeans
+                </h3>
+
+                <div class="product-category">
+                    Men's Fashion
+                </div>
+
+                <div class="rating">
+                    ★★★★★
+                </div>
+
+                <div class="price">
+
+                    <strong>
+                        ₹1,099
+                    </strong>
+
+                    <span class="old-price">
+                        ₹1,599
+                    </span>
+
+                </div>
+
+
+                <div class="product-buttons">
+
+                    <button class="cart-btn"
+                            onclick="addToCart('Classic Denim Jeans')">
+
+                        Add to Cart
+
+                    </button>
+
+                    <button class="buy-btn"
+                            onclick="buyNow('Classic Denim Jeans')">
+
+                        Buy Now
+
+                    </button>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- PRODUCT 4 -->
+
+        <div class="product-card">
+
+            <div class="product-image">
+
+                <span class="sale-badge">
+                    15% OFF
+                </span>
+
+                <button class="heart"
+                        onclick="wishlist(this)">
+                    ♡
+                </button>
+
+                <img
+                    src="https://images.unsplash.com/photo-1551028719-00167b16eac5?auto=format&fit=crop&w=700&q=85"
+                    alt="Leather Jacket">
+
+            </div>
+
+
+            <div class="product-info">
+
+                <h3>
+                    Premium Leather Jacket
+                </h3>
+
+                <div class="product-category">
+                    Men's Fashion
+                </div>
+
+                <div class="rating">
+                    ★★★★★
+                </div>
+
+                <div class="price">
+
+                    <strong>
+                        ₹2,999
+                    </strong>
+
+                    <span class="old-price">
+                        ₹3,499
+                    </span>
+
+                </div>
+
+
+                <div class="product-buttons">
+
+                    <button class="cart-btn"
+                            onclick="addToCart('Premium Leather Jacket')">
+
+                        Add to Cart
+
+                    </button>
+
+                    <button class="buy-btn"
+                            onclick="buyNow('Premium Leather Jacket')">
+
+                        Buy Now
+
+                    </button>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- PRODUCT 5 -->
+
+        <div class="product-card">
+
+            <div class="product-image">
+
+                <span class="sale-badge">
+                    20% OFF
+                </span>
+
+                <button class="heart"
+                        onclick="wishlist(this)">
+                    ♡
+                </button>
+
+                <img
+                    src="https://images.unsplash.com/photo-1591369822096-ffd140ec948f?auto=format&fit=crop&w=700&q=85"
+                    alt="Women's Outfit">
+
+            </div>
+
+
+            <div class="product-info">
+
+                <h3>
+                    Modern Casual Outfit
+                </h3>
+
+                <div class="product-category">
+                    Women's Fashion
+                </div>
+
+                <div class="rating">
+                    ★★★★☆
+                </div>
+
+                <div class="price">
+
+                    <strong>
+                        ₹1,799
+                    </strong>
+
+                    <span class="old-price">
+                        ₹2,199
+                    </span>
+
+                </div>
+
+
+                <div class="product-buttons">
+
+                    <button class="cart-btn"
+                            onclick="addToCart('Modern Casual Outfit')">
+
+                        Add to Cart
+
+                    </button>
+
+                    <button class="buy-btn"
+                            onclick="buyNow('Modern Casual Outfit')">
+
+                        Buy Now
+
+                    </button>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- PRODUCT 6 -->
+
+        <div class="product-card">
+
+            <div class="product-image">
+
+                <span class="sale-badge">
+                    35% OFF
+                </span>
+
+                <button class="heart"
+                        onclick="wishlist(this)">
+                    ♡
+                </button>
+
+                <img
+                    src="https://images.unsplash.com/photo-1543163521-1bf539c55dd2?auto=format&fit=crop&w=700&q=85"
+                    alt="Women's Shoes">
+
+            </div>
+
+
+            <div class="product-info">
+
+                <h3>
+                    Stylish Women's Shoes
+                </h3>
+
+                <div class="product-category">
+                    Footwear
+                </div>
+
+                <div class="rating">
+                    ★★★★★
+                </div>
+
+                <div class="price">
+
+                    <strong>
+                        ₹1,299
+                    </strong>
+
+                    <span class="old-price">
+                        ₹1,999
+                    </span>
+
+                </div>
+
+
+                <div class="product-buttons">
+
+                    <button class="cart-btn"
+                            onclick="addToCart('Stylish Womens Shoes')">
+
+                        Add to Cart
+
+                    </button>
+
+                    <button class="buy-btn"
+                            onclick="buyNow('Stylish Womens Shoes')">
+
+                        Buy Now
+
+                    </button>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- PRODUCT 7 -->
+
+        <div class="product-card">
+
+            <div class="product-image">
+
+                <span class="sale-badge">
+                    10% OFF
+                </span>
+
+                <button class="heart"
+                        onclick="wishlist(this)">
+                    ♡
+                </button>
+
+                <img
+                    src="https://images.unsplash.com/photo-1584917865442-de89df76afd3?auto=format&fit=crop&w=700&q=85"
+                    alt="Fashion Bag">
+
+            </div>
+
+
+            <div class="product-info">
+
+                <h3>
+                    Premium Fashion Bag
+                </h3>
+
+                <div class="product-category">
+                    Accessories
+                </div>
+
+                <div class="rating">
+                    ★★★★☆
+                </div>
+
+                <div class="price">
+
+                    <strong>
+                        ₹1,599
+                    </strong>
+
+                    <span class="old-price">
+                        ₹1,799
+                    </span>
+
+                </div>
+
+
+                <div class="product-buttons">
+
+                    <button class="cart-btn"
+                            onclick="addToCart('Premium Fashion Bag')">
+
+                        Add to Cart
+
+                    </button>
+
+                    <button class="buy-btn"
+                            onclick="buyNow('Premium Fashion Bag')">
+
+                        Buy Now
+
+                    </button>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- PRODUCT 8 -->
+
+        <div class="product-card">
+
+            <div class="product-image">
+
+                <span class="sale-badge">
+                    25% OFF
+                </span>
+
+                <button class="heart"
+                        onclick="wishlist(this)">
+                    ♡
+                </button>
+
+                <img
+                    src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?auto=format&fit=crop&w=700&q=85"
+                    alt="Cotton T-Shirt">
+
+            </div>
+
+
+            <div class="product-info">
+
+                <h3>
+                    Premium Cotton T-Shirt
+                </h3>
+
+                <div class="product-category">
+                    Men's Fashion
+                </div>
+
+                <div class="rating">
+                    ★★★★★
+                </div>
+
+                <div class="price">
+
+                    <strong>
+                        ₹699
+                    </strong>
+
+                    <span class="old-price">
+                        ₹899
+                    </span>
+
+                </div>
+
+
+                <div class="product-buttons">
+
+                    <button class="cart-btn"
+                            onclick="addToCart('Premium Cotton T-Shirt')">
+
+                        Add to Cart
+
+                    </button>
+
+                    <button class="buy-btn"
+                            onclick="buyNow('Premium Cotton T-Shirt')">
+
+                        Buy Now
+
+                    </button>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- ================= SALE ================= -->
+
+<section class="sale"
+         id="sale">
+
+    <div class="sale-content">
+
+        <h2>
+            Fashion Mega Sale 🔥
+        </h2>
+
+        <p>
+            Get up to 50% OFF on selected fashion products.
+        </p>
+
+        <a href="#products"
+           class="sale-btn">
+
+            Shop Sale
+
+        </a>
+
+    </div>
+
+
+    <div class="sale-icon">
+        🛍️
+    </div>
+
+</section>
+
+
+
+<!-- ================= FOOTER ================= -->
+
+<footer>
+
+    <div>
+
+        <h3>
+            ShopEase
+        </h3>
+
+        <p>
+            Your one-stop destination for
+            fashion and lifestyle products.
+        </p>
+
+    </div>
+
+
+    <div>
+
+        <h3>
+            Quick Links
+        </h3>
+
+        <ul class="footer-links">
+
+            <li>
+                <a href="{% url 'homepage' %}">
+                    Home
+                </a>
+            </li>
+
+            <li>
+                <a href="#products">
+                    Products
+                </a>
+            </li>
+
+            <li>
+                <a href="#categories">
+                    Categories
+                </a>
+            </li>
+
+            <li>
+                <a href="#sale">
+                    Offers
+                </a>
+            </li>
+
+        </ul>
+
+    </div>
+
+
+    <div>
+
+        <h3>
+            Contact
+        </h3>
+
+        <p>
+            support@shopease.com
+        </p>
+
+        <p>
+            +91 98765 43210
+        </p>
+
+    </div>
+
+</footer>
+
+
+
+<!-- ================= JAVASCRIPT ================= -->
+
+<script>
+
+    function wishlist(button) {
+
+        if (button.innerHTML === "♡") {
+
+            button.innerHTML = "♥";
+            button.style.color = "#ff4d6d";
+
+        } else {
+
+            button.innerHTML = "♡";
+            button.style.color = "#222";
+
+        }
+
+    }
+
+
+    function addToCart(productName) {
+
+        alert(
+            productName +
+            " has been added to your cart."
+        );
+
+    }
+
+
+    function buyNow(productName) {
+
+        alert(
+            "You selected: " +
+            productName +
+            "\n\nProceeding to checkout..."
+        );
+
+
+    }
+
+</script>
+
+
+</body>
+</html>

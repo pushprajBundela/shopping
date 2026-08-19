@@ -4,7 +4,7 @@ from django.contrib.auth.models import User
 class  registration(models.Model):
     user=models.OneToOneField(User,on_delete=models.CASCADE,default=None)
     full_name=models.CharField(max_length=30)
-    email=models.EmailField()
+    email=models.EmailField(unique=True)
     user_name=models.CharField(max_length=20)
 
     def __str__(self):
